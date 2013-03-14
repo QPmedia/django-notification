@@ -92,6 +92,7 @@ class NoticeSetting(models.Model):
 
     @classmethod
     def for_user(cls, user, notice_type, medium):
+        medium = str(medium)
         try:
             return cls._default_manager.get(user=user, notice_type=notice_type, medium=medium)
         except cls.DoesNotExist:
